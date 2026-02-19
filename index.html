@@ -1,0 +1,495 @@
+<!DOCTYPE HTML>
+<html lang="bn">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Md Abdul Kuddus | Grameen Modhu Bhandar</title>
+  <meta name="description" content="Md Abdul Kuddus (Digital Creator) এবং Grameen Modhu Bhandar (100% Natural Raw Honey) এর অফিসিয়াল পোর্টফোলিও। অর্ডার করুন WhatsApp-এ।" />
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <style>
+    :root{
+      --brand: #c49a2e;   /* honey gold */
+      --dark: #0f172a;
+      --muted: #64748b;
+      --card: rgba(255,255,255,.92);
+      --shadow: 0 12px 30px rgba(2, 6, 23, .08);
+      --radius: 18px;
+    }
+    body{
+      /* অরিজিনাল ব্যাকগ্রাউন্ড সামান্য পরিবর্তন করে কমিয়ে দেওয়া হয়েছে, কারণ নিচে 3D ব্যাকগ্রাউন্ড যোগ করা হচ্ছে */
+      background: radial-gradient(1200px 700px at 10% 0%, rgba(196,154,46,.08), transparent 50%),
+                  radial-gradient(900px 600px at 90% 10%, rgba(34,197,94,.06), transparent 45%),
+                  #f8fafc; /* ব্যাকগ্রাউন্ড কালার একটু হালকা রাখা হয়েছে */
+      color: #0b1220;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      position: relative; /* সিউডো-এলিমেন্ট পজিশনিং এর জন্য */
+      min-height: 100vh;
+      overflow-x: hidden; /* ক্ষণস্থায়ী অনুভূমিক স্ক্রল এড়াতে */
+    }
+
+    /* 3D ব্যাকগ্রাউন্ড লেয়ার */
+    body::before {
+      content: "";
+      position: fixed; /* ফিক্সড রেখে পুরো ভিউপোর্ট জুড়ে রাখা */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none; /* এটা খুবই জরুরি: এতে করে কেউ ব্যাকগ্রাউন্ডে ক্লিক করতে পারবে না, বাটন/লিংক কাজ করবে */
+      z-index: 0; /* কন্টেন্টের নিচে রাখা */
+
+      /* 3D ডেপথ তৈরি করার জন্য মাল্টিপল লেয়ার */
+      background-image: 
+        /* লেয়ার 1: ছোট ছোট ডট - সবচেয়ে দূরের লেয়ার */
+        radial-gradient(circle at 30% 40%, rgba(196, 154, 46, 0.08) 1px, transparent 1px),
+        radial-gradient(circle at 70% 85%, rgba(34, 197, 94, 0.07) 2px, transparent 2px),
+        radial-gradient(circle at 10% 90%, rgba(196, 154, 46, 0.1) 1px, transparent 1px),
+        radial-gradient(circle at 90% 15%, rgba(34, 197, 94, 0.05) 1px, transparent 1px),
+        /* লেয়ার 2: বড় বৃত্ত এবং অস্পষ্ট আকার - মাঝের লেয়ার */
+        radial-gradient(circle at 20% 30%, rgba(196, 154, 46, 0.1) 0px, transparent 100px),
+        radial-gradient(circle at 80% 70%, rgba(34, 197, 94, 0.06) 0px, transparent 120px),
+        /* লেয়ার 3: সরল রেখা - কাছের লেয়ার */
+        repeating-linear-gradient(45deg, rgba(255, 255, 255, 0) 0px, rgba(255, 255, 255, 0) 10px, rgba(196, 154, 46, 0.02) 10px, rgba(196, 154, 46, 0.02) 20px),
+        repeating-linear-gradient(135deg, rgba(34, 197, 94, 0.02) 0px, rgba(34, 197, 94, 0.02) 15px, rgba(255,255,255,0) 15px, rgba(255,255,255,0) 30px);
+
+      /* অ্যানিমেশন: ধীরে ধীরে সরে 3D ইফেক্ট আনা */
+      animation: move 30s linear infinite alternate;
+    }
+
+    /* 3D ব্যাকগ্রাউন্ডের নড়াচড়া */
+    @keyframes move {
+      0% {
+        transform: translate(0, 0) scale(1);
+      }
+      100% {
+        transform: translate(-1%, -1%) scale(1.02); /* সামান্য নড়াচড়া এবং স্কেল পরিবর্তন */
+      }
+    }
+
+    /* নিশ্চিত করা যে সকল কন্টেন্ট ব্যাকগ্রাউন্ডের উপরে থাকবে */
+    .navbar,
+    header,
+    section,
+    footer,
+    .wa-float,
+    .hero-card,
+    .cardx,
+    .pill {
+      position: relative; /* জিনিসগুলোকে সিউডো-এলিমেন্টের উপরে রাখার জন্য */
+      z-index: 2;
+    }
+
+    /* Navbar ও কার্ডগুলো আরও পরিষ্কার রাখতে এদের ব্যাকগ্রাউন্ড একটু বেশি অস্বচ্ছ রাখা আছে, যেমনটা আপনার আগে ছিল */
+    .navbar{
+      backdrop-filter: blur(10px);
+      background: rgba(248,250,252,.85); /* ব্যাকগ্রাউন্ড আরেকটু ঘন করা হল */
+      border-bottom: 1px solid rgba(15,23,42,.08);
+    }
+    .hero{ padding-top: 92px; padding-bottom: 40px; }
+    .hero-card{
+      border: 1px solid rgba(15,23,42,.08);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      background: var(--card);
+      overflow: hidden;
+    }
+    .badge-soft{
+      background: rgba(196,154,46,.12);
+      color: #7a5d10;
+      border: 1px solid rgba(196,154,46,.25);
+    }
+    .btn-brand{
+      background: var(--brand);
+      border-color: var(--brand);
+      color: #111827;
+      font-weight: 800;
+    }
+    .btn-brand:hover{ filter: brightness(.96); }
+    .section{ padding: 56px 0; }
+    .section-title{ font-weight: 900; letter-spacing: -.02em; }
+    .muted{ color: var(--muted); }
+    .cardx{
+      border: 1px solid rgba(15,23,42,.08);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      background: rgba(255,255,255,.92);
+      transition: transform 0.1s ease;
+    }
+    .cardx:hover{ box-shadow: 0 20px 35px rgba(2,6,23,.12); }
+    .img-cover{ width: 100%; height: 100%; object-fit: cover; }
+    .avatar{
+      width: 88px; height: 88px;
+      border-radius: 22px;
+      object-fit: cover;
+      border: 2px solid rgba(15,23,42,.08);
+    }
+    .brand-logo{
+      width: 56px; height: 56px;
+      border-radius: 16px;
+      object-fit: cover;
+      border: 1px solid rgba(15,23,42,.10);
+      background: #fff;
+    }
+    .pill{
+      border: 1px solid rgba(15,23,42,.10);
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.85);
+    }
+    .gallery img{
+      border-radius: 16px;
+      border: 1px solid rgba(15,23,42,.08);
+      box-shadow: 0 10px 22px rgba(2,6,23,.06);
+    }
+    .wa-float{
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 999; /* ফ্লোটিং বাটন সবসময় উপরে থাকবে */
+    }
+    .wa-float a{
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #22c55e;
+      color: #052e16;
+      padding: 12px 20px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 900;
+      box-shadow: 0 14px 30px rgba(34,197,94,.22);
+      border: 1px solid rgba(5,46,22,.12);
+    }
+    .footer{
+      border-top: 1px solid rgba(15,23,42,.08);
+      padding: 18px 0;
+    }
+    .small-link a{ color: inherit; }
+    .disabled-card{ opacity: .55; }
+  </style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#home">
+      <span class="me-2" style="color:var(--brand)"><i class="bi bi-droplet-fill"></i></span>
+      Abdul Kuddus
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="nav" class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto gap-lg-2">
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#brand">Brand</a></li>
+        <li class="nav-item"><a class="nav-link" href="#order">অর্ডার</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header id="home" class="hero">
+  <div class="container">
+    <div class="hero-card">
+      <div class="row g-0">
+        <div class="col-lg-5">
+          <img src="assets/img/cover.jpg" alt="Cover" class="img-cover" style="min-height: 320px; background: #e2e8f0;" onerror="this.style.display='none'">
+        </div>
+        <div class="col-lg-7">
+          <div class="p-4 p-md-5">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <img class="avatar" src="assets/img/profile.jpg" alt="Profile" onerror="this.src='https://via.placeholder.com/88x88?text=Kuddus'">
+              <div>
+                <div class="d-flex flex-wrap align-items-center gap-2">
+                  <h1 class="h3 fw-bold mb-0">Md Abdul Kuddus</h1>
+                  <span class="badge badge-soft rounded-pill">Digital Creator</span>
+                </div>
+                <div class="muted">ব্যক্তিগত পোর্টফোলিও ও গ্রামীণ মধু ভান্ডার</div>
+              </div>
+            </div>
+
+            <p class="lead mb-3">
+              আমি <strong>Md Abdul Kuddus</strong> — কন্টেন্ট ক্রিয়েশন, ডিজিটাল মার্কেটিং 
+              এবং আমার ব্র্যান্ড <strong class="text-warning">Grameen Modhu Bhandar</strong> (১০০% খাঁটি কাঁচা মধু) নিয়েই আমার পথচলা।
+            </p>
+
+            <div class="d-flex flex-wrap gap-2 mb-4">
+              <div class="pill"><i class="bi bi-check2-circle me-1"></i> কন্টেন্ট স্ট্র্যাটেজি</div>
+              <div class="pill"><i class="bi bi-check2-circle me-1"></i> ব্র্যান্ড মার্কেটিং</div>
+              <div class="pill"><i class="bi bi-check2-circle me-1"></i> হানি বিজনেস</div>
+            </div>
+
+            <div class="d-flex flex-wrap gap-2">
+              <a class="btn btn-brand btn-lg" href="#brand"><i class="bi bi-shop me-2"></i>গ্রামীণ মধু ভান্ডার</a>
+              <a class="btn btn-outline-dark btn-lg" href="#order"><i class="bi bi-bag-check me-2"></i>অর্ডার করুন</a>
+            </div>
+
+            <hr class="my-4">
+
+            <div class="row g-2 small-link">
+              <div class="col-md-6">
+                <div class="cardx p-3 position-relative">
+                  <div class="fw-bold mb-1"><i class="bi bi-person-circle me-2"></i>ব্যক্তিগত প্রোফাইল</div>
+                  <div class="muted small">facebook.com/it.abdulkuddus</div>
+                  <a class="stretched-link" target="_blank" href="https://facebook.com/it.abdulkuddus" rel="noopener">Open</a>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="cardx p-3 position-relative">
+                  <div class="fw-bold mb-1"><i class="bi bi-droplet me-2"></i>বিজনেস পেজ</div>
+                  <div class="muted small">facebook.com/GrameenModhuBhandar</div>
+                  <a class="stretched-link" target="_blank" href="https://www.facebook.com/GrameenModhuBhandar" rel="noopener">Open</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="container">
+    <div class="row g-4 align-items-stretch">
+      <div class="col-lg-7">
+        <div class="cardx p-4 p-md-5 h-100">
+          <h2 class="section-title mb-2">আমার সম্পর্কে</h2>
+          <p class="muted mb-3">
+            ডিজিটাল মার্কেটিং ও কন্টেন্ট ক্রিয়েশন নিয়ে কাজ করি। 
+            নিজের ব্র্যান্ড <strong>গ্রামীণ মধু ভান্ডার</strong> পরিচালনার মাধ্যমে বাস্তব অভিজ্ঞতা অর্জন করছি।
+          </p>
+
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="p-3 border rounded-4 bg-white">
+                <div class="fw-bold"><i class="bi bi-lightning-charge me-2"></i>Skills</div>
+                <div class="muted small mt-1">কন্টেন্ট স্ট্র্যাটেজি, ব্র্যান্ডিং, ফেসবুক মার্কেটিং, বেসিক গ্রাফিক ডিজাইন</div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="p-3 border rounded-4 bg-white">
+                <div class="fw-bold"><i class="bi bi-geo-alt me-2"></i>Location</div>
+                <div class="muted small mt-1">বাংলাদেশ (অনলাইন সার্ভিস সারা দেশে)</div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="p-3 border rounded-4 bg-white">
+                <div class="fw-bold"><i class="bi bi-bullseye me-2"></i>Focus</div>
+                <div class="muted small mt-1">গ্রাহকের আস্থা, কোয়ালিটি, সন্তুষ্টি</div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="p-3 border rounded-4 bg-white">
+                <div class="fw-bold"><i class="bi bi-award me-2"></i>Brand Promise</div>
+                <div class="muted small mt-1">১০০% খাঁটি, কোনো কেমিক্যাল নয়</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4 d-flex flex-wrap gap-2">
+            <a class="btn btn-outline-dark" target="_blank" href="https://facebook.com/it.abdulkuddus" rel="noopener">
+              <i class="bi bi-facebook me-2"></i>Follow Personal
+            </a>
+            <a class="btn btn-outline-dark" target="_blank" href="https://www.facebook.com/GrameenModhuBhandar" rel="noopener">
+              <i class="bi bi-facebook me-2"></i>Visit Brand Page
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-5">
+        <div class="cardx p-4 p-md-5 h-100">
+          <h2 class="section-title mb-2">Quick Info</h2>
+          <p class="muted">এই সাইটটি আপনার জন্য "ওয়ান-লিংক হাব" — যেখানে সব তথ্য এক জায়গায় পাবেন।</p>
+
+          <div class="mt-3">
+            <div class="d-flex align-items-center gap-3 p-3 border rounded-4 bg-white mb-2">
+              <i class="bi bi-shield-check fs-4" style="color: var(--brand)"></i>
+              <div>
+                <div class="fw-bold">Trusted Presentation</div>
+                <div class="muted small">প্রফেশনাল ডিজাইন + পরিষ্কার তথ্য</div>
+              </div>
+            </div>
+            <div class="d-flex align-items-center gap-3 p-3 border rounded-4 bg-white mb-2">
+              <i class="bi bi-phone fs-4 text-success"></i>
+              <div>
+                <div class="fw-bold">WhatsApp Order</div>
+                <div class="muted small">দ্রুত সাপোর্ট</div>
+              </div>
+            </div>
+            <div class="d-flex align-items-center gap-3 p-3 border rounded-4 bg-white">
+              <i class="bi bi-speedometer2 fs-4 text-primary"></i>
+              <div>
+                <div class="fw-bold">Fast & Lightweight</div>
+                <div class="muted small">স্ট্যাটিক সাইট, খুব দ্রুত লোড হয়</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND -->
+<section id="brand" class="section pt-0">
+  <div class="container">
+    <div class="cardx p-4 p-md-5">
+      <div class="d-flex align-items-center gap-3 mb-3">
+        <img class="brand-logo" src="assets/img/logo.png" alt="Brand Logo" onerror="this.src='https://via.placeholder.com/56x56?text=Honey'">
+        <div>
+          <h2 class="section-title mb-0">Grameen Modhu Bhandar</h2>
+          <div class="muted">১০০% খাঁটি কাঁচা মধু • সরাসরি মৌচাক থেকে</div>
+        </div>
+      </div>
+
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-6">
+          <h3 class="h5 fw-bold mb-2">কেন আমাদের কাছ থেকে কিনবেন?</h3>
+          <ul class="muted mb-3">
+            <li>খাঁটি প্রাকৃতিক চাকের মধু (Raw & Natural)</li>
+            <li>কোনো কেমিক্যাল নয়, সম্পূর্ণ স্বাস্থ্যকর</li>
+            <li>সারা বাংলাদেশে ডেলিভারি (হোম ডেলিভারি)</li>
+            <li>ক্যাশ অন ডেলিভারি / অগ্রিম পেমেন্ট</li>
+          </ul>
+
+          <div class="d-flex flex-wrap gap-2">
+            <a class="btn btn-brand" href="#order"><i class="bi bi-bag-check me-2"></i>অর্ডার করুন</a>
+            <a class="btn btn-outline-dark" target="_blank" href="https://www.facebook.com/GrameenModhuBhandar" rel="noopener">
+              <i class="bi bi-facebook me-2"></i>ফেসবুক পেজ দেখুন
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="row g-3 gallery">
+            <div class="col-6"><img class="img-fluid" src="assets/img/honey-1.jpg" alt="Honey 1" onerror="this.style.display='none'"></div>
+            <div class="col-6"><img class="img-fluid" src="assets/img/honey-2.jpg" alt="Honey 2" onerror="this.style.display='none'"></div>
+            <div class="col-12"><img class="img-fluid" src="assets/img/honey-3.jpg" alt="Honey 3" onerror="this.style.display='none'"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING + ORDER (শুধু বাংলা) -->
+<section id="order" class="section pt-0">
+  <div class="container">
+    <div class="cardx p-4 p-md-5">
+
+      <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+        <div>
+          <h2 class="section-title mb-1">অর্ডার করুন (মূল্য ও ফর্ম)</h2>
+          <div class="muted">বর্তমানে ১ কেজি প্যাক স্টকে আছে</div>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <!-- Price Cards -->
+        <div class="col-lg-5">
+          <div class="row g-3">
+
+            <!-- 500g (Out of stock) -->
+            <div class="col-12">
+              <div class="cardx p-4 disabled-card">
+                <div class="d-flex justify-content-between align-items-start gap-2">
+                  <div>
+                    <div class="fw-bold fs-5">কাঁচা মধু — ৫০০ গ্রাম</div>
+                    <div class="muted small">স্টক শেষ (আবার আসবে)</div>
+                  </div>
+                  <span class="badge bg-secondary rounded-pill">স্টক নাই</span>
+                </div>
+
+                <div class="mt-3">
+                  <div class="h3 fw-bold mb-0">—</div>
+                </div>
+
+                <button class="btn btn-outline-secondary w-100 mt-3" type="button" disabled>
+                  <i class="bi bi-x-circle me-2"></i>স্টক শেষ
+                </button>
+              </div>
+            </div>
+
+            <!-- 1kg (In stock) -->
+            <div class="col-12">
+              <div class="cardx p-4">
+                <div class="d-flex justify-content-between align-items-start gap-2">
+                  <div>
+                    <div class="fw-bold fs-5">কাঁচা মধু — ১ কেজি</div>
+                    <div class="muted small">স্টকে আছে</div>
+                  </div>
+                  <span class="badge badge-soft rounded-pill">স্টকে</span>
+                </div>
+
+                <div class="mt-3">
+                  <div class="h3 fw-bold mb-0">৳ <span id="price1kg">850</span></div>
+                </div>
+
+                <button class="btn btn-brand w-100 mt-3" type="button" onclick="selectPack('1kg')">
+                  <i class="bi bi-bag-check me-2"></i>১ কেজি সিলেক্ট
+                </button>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="p-3 border rounded-4 bg-white">
+                <div class="fw-bold">ডেলিভারি + পেমেন্ট</div>
+                <div class="muted small mt-1">ক্যাশ অন ডেলিভারি (COD) বা বিকাশ/নগদ/রকেট (অগ্রিম)</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Order Form (শুধু বাংলা) -->
+        <div class="col-lg-7">
+          <div class="cardx p-4 p-md-5 h-100">
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+              <div class="fw-bold fs-5">অর্ডার ফর্ম</div>
+              <div class="muted small">ফর্ম পূরণ করুন → WhatsApp-এ অটো মেসেজ যাবে</div>
+            </div>
+
+            <form id="orderForm">
+              <div class="row g-2">
+                <div class="col-md-6">
+                  <label class="form-label">নাম</label>
+                  <input class="form-control" id="custName" placeholder="আপনার নাম" required>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">মোবাইল নাম্বার</label>
+                  <input class="form-control" id="custPhone" placeholder="+8801xxxxxxxx" required>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">প্যাক সাইজ</label>
+                  <select class="form-select" id="packSize" required>
+                    <option value="1kg" selected>১ কেজি (স্টকে)</option>
+                  </select>
+                  <div class="muted small mt-1">শুধু ১ কেজি পাওয়া যাচ্ছে</div>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">কয়টা লাগবে?</label>
+                  <input class="form-control" id="qty" type="number" min="1" value="1" required>
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label">সম্পূর্ণ ঠিকানা</label>
+                  <textarea class="fo
